@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo ao Robot Room42!</h1>
+                                    </div>
+                                @using (Html.BeginForm("ObterUsuario", "Login"))
+                                    {   
+                                        @if(ViewBag.ShowError == true)
+                                        {
+                                            <div class="alert alert-danger" role="alert">
+                                                Usuário não encontrado, tente novamente!
+                                            </div>
+                                        }
+                                        @if(ViewBag.Sucesso == true)
+                                        {
+                                            <div class="alert alert-success" role="alert">
+                                                Usuário cadastrado com sucesso!
+                                            </div>
+                                        }
+
+                                        <div class="form-group">
+                                            <input type="email" name="Email" class="form-control form-control-user"
+                                               id="exampleInputEmail" aria-describedby="emailHelp" required
+                                               placeholder="Digite seu Email...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="Senha" class="form-control form-control-user"
+                                               id="exampleInputPassword" required placeholder="Digite sua Senha">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Lembrar senha</label>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
+                                        <hr>
+                                        <a href="@Url.Action("LoginUser", "Login", new {Views = "Dashboard"})" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i> Login com o Google </a>
+
+                                        <a href="@Url.Action("LoginUser", "Login", new {Views = "Dashboard"})" class="btn btn-facebook btn-user btn-block">
+                                         <i class="fab fa-facebook-f fa-fw"></i> Login com o Facebook</a>
+                                    }
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Esqueci minha senha.</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="@Url.Action("Cadastro", "Login", new {Views = "Cadastro"})" class="small" href="register.html">Criar um nova conta!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

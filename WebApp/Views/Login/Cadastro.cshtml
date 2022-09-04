@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Crie uma conta!</h1>
+                        </div>
+                        @using (Html.BeginForm("SalvaUsuario", "Login"))
+                        {
+                            @if (ViewBag.Sucesso == true)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    Usuário cadastrado com sucesso!
+                                </div>
+                            }
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" name="nome" class="form-control form-control-user" id="exampleFirstName"
+                                       placeholder="Nome">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" name="sobrenome" class="form-control form-control-user" id="exampleLastName"
+                                       placeholder="Sobrenome">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="number" name="idade" class="form-control form-control-user" id="exampleOldYear"
+                                       placeholder="Idade">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="number" name="cpf" class="form-control form-control-user" id="exampleCPF"
+                                       placeholder="CPF">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                   placeholder="Endereço de Email">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user"
+                                       id="exampleInputPassword" placeholder="Senha">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" name="senha" class="form-control form-control-user"
+                                       id="exampleRepeatPassword" placeholder="Repita a Senha">
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Criar conta">
+
+                            <hr>
+                            <a href="@Url.Action("Index", "Login", new {Views = "Login"})" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> Criar conta com o Google
+                            </a>
+                            <a href="@Url.Action("Index", "Login", new {Views = "Login"})" class="btn btn-facebook btn-user btn-block">
+                                <i class="fab fa-facebook-f fa-fw"></i> Criar conta com o Facebook
+                            </a>
+                        }
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="@Url.Action("Index", "Login", new {Views = "Login"})">Esqueci minha senha.</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="@Url.Action("Index", "Login", new {Views = "Login"})">Já tenho uma conta? Fazer Login!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
