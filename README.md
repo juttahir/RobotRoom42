@@ -1,0 +1,4 @@
+# A RobotRoom42 nasceu com o grupo do primeiro semestre da **FIAP (Faculdade de Informática e Administração Paulista)**, formado inicialmente pelos representantes:  **Daniel Okudaira, Gabriel Gonçalves, Juttahir Moraes, Mario Maeda e Edgard Pereira.**
+
+O objetivo do grupo é a criação de um exoesqueleto para o **HAOC (Hospital Alemão Osvaldo Cruz)**, mirando no reconhecimento e movimentação dos joelhos, auxiliando o paciente na fisioterapia no conforto de sua casa, ou em algum local de sua preferência, evitando assim seu deslocamento até o fisioterapeuta.
+Além do exoesqueleto, produzimos esse portal para monitoramento do paciente e do fisioterapeuta, fazendo com que ambos tenham acesso a evulição diária do paciente, com um sistema  prático, dinâmico e divertido, repleto de tasks e gamificação para o incentivo do uso do aparelho, tanto para fisioterapia quanto para exercícios físicos.
