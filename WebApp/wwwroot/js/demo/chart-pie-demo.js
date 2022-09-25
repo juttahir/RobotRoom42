@@ -10,9 +10,6 @@ var myPieChart = new Chart(ctx, {
     labels: ["Direct", "Referral", "Social"],
     datasets: [{
       data: [85, 10, 5],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-      hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },
   options: {
@@ -33,3 +30,46 @@ var myPieChart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
+
+(function () {
+
+    function createCanvas() {
+        var canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '-5000px';
+        canvas.style.maxWidth = '3000px';
+        document.body.appendChild(canvas);
+
+        return canvas;
+    }
+
+    window.pwgiImagemRotateImg = function (img, deg) {
+        var canvas,
+            context;
+
+        if (!img.dataset.original) {
+            img.dataset.original = img.src;
+        }
+
+        var cloneImg = new Image();
+        cloneImg.crossOrigin = 'anonymous';
+        cloneImg.addEventListener('load', function () {
+            canvas = createCanvas();
+            context = canvas.getContext('2d');
+            canvas.width = this.height;
+            canvas.height = this.width;
+            context.clearRect(0, 0, this.width, this.height);
+            context.save();
+            context.translate(canvas.width / 2, canvas.height / 2);
+            context.rotate(deg * Math.PI / 180);
+            context.drawImage(this, -this.width / 2, -this.height / 2);
+            context.restore();
+            img.src = canvas.toDataURL('image/jpeg');
+            img.dataset.rotated = deg;
+            canvas.parentElement.removeChild(canvas);
+            cloneImg = null;
+        });
+        cloneImg.src = img.dataset.original;
+    };
+
+}());
